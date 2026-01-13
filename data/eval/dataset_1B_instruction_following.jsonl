@@ -1,0 +1,60 @@
+{"id": 0, "prompt": "Answer in exactly one sentence: What is the capital of Italy?", "expected_behavior": "Single sentence answer", "reference_response": "The capital of Italy is Rome."}
+{"id": 1, "prompt": "Reply with only a number: How many sides does a triangle have?", "expected_behavior": "Number only", "reference_response": "3"}
+{"id": 2, "prompt": "Say only YES or NO: Is the sky blue?", "expected_behavior": "YES or NO only", "reference_response": "YES"}
+{"id": 3, "prompt": "Answer in exactly two sentences: Who wrote Hamlet?", "expected_behavior": "Two sentences", "reference_response": "William Shakespeare wrote Hamlet. It is one of his most famous plays."}
+{"id": 4, "prompt": "Reply with only a number: What is 15 divided by 3?", "expected_behavior": "Number only", "reference_response": "5"}
+{"id": 5, "prompt": "Say only YES or NO: Is water wet?", "expected_behavior": "YES or NO only", "reference_response": "YES"}
+{"id": 6, "prompt": "Answer in exactly one sentence: What is the largest planet in our solar system?", "expected_behavior": "Single sentence answer", "reference_response": "Jupiter is the largest planet in our solar system."}
+{"id": 7, "prompt": "Reply with only a number: How many months are in a year?", "expected_behavior": "Number only", "reference_response": "12"}
+{"id": 8, "prompt": "Say only YES or NO: Is 2 plus 2 equal to 4?", "expected_behavior": "YES or NO only", "reference_response": "YES"}
+{"id": 9, "prompt": "Answer in exactly one sentence: What is the chemical symbol for oxygen?", "expected_behavior": "Single sentence answer", "reference_response": "The chemical symbol for oxygen is O."}
+{"id": 10, "prompt": "Reply with only a number: How many letters are in the word 'hello'?", "expected_behavior": "Number only", "reference_response": "5"}
+{"id": 11, "prompt": "Say only YES or NO: Does the sun rise in the east?", "expected_behavior": "YES or NO only", "reference_response": "YES"}
+{"id": 12, "prompt": "Answer in exactly two sentences: Who invented the telephone?", "expected_behavior": "Two sentences", "reference_response": "Alexander Graham Bell invented the telephone. He received the patent in 1876."}
+{"id": 13, "prompt": "Reply with only a number: What is 7 times 8?", "expected_behavior": "Number only", "reference_response": "56"}
+{"id": 14, "prompt": "Say only YES or NO: Is the Earth round?", "expected_behavior": "YES or NO only", "reference_response": "YES"}
+{"id": 15, "prompt": "Answer in exactly one sentence: What is the square root of 16?", "expected_behavior": "Single sentence answer", "reference_response": "The square root of 16 is 4."}
+{"id": 16, "prompt": "Reply with only a number: How many days are in a week?", "expected_behavior": "Number only", "reference_response": "7"}
+{"id": 17, "prompt": "Say only YES or NO: Is fire hot?", "expected_behavior": "YES or NO only", "reference_response": "YES"}
+{"id": 18, "prompt": "Answer in exactly one sentence: What is the capital of Japan?", "expected_behavior": "Single sentence answer", "reference_response": "The capital of Japan is Tokyo."}
+{"id": 19, "prompt": "Reply with only a number: How many vowels are in the alphabet?", "expected_behavior": "Number only", "reference_response": "5"}
+{"id": 20, "prompt": "Say only YES or NO: Is ice cold?", "expected_behavior": "YES or NO only", "reference_response": "YES"}
+{"id": 21, "prompt": "Answer in exactly two sentences: What is photosynthesis?", "expected_behavior": "Two sentences", "reference_response": "Photosynthesis is the process by which plants convert sunlight into energy. It occurs in the chloroplasts of plant cells."}
+{"id": 22, "prompt": "Reply with only a number: What is 25 minus 10?", "expected_behavior": "Number only", "reference_response": "15"}
+{"id": 23, "prompt": "Say only YES or NO: Is the moon a star?", "expected_behavior": "YES or NO only", "reference_response": "NO"}
+{"id": 24, "prompt": "Answer in exactly one sentence: What is the largest ocean on Earth?", "expected_behavior": "Single sentence answer", "reference_response": "The Pacific Ocean is the largest ocean on Earth."}
+{"id": 25, "prompt": "Reply with only a number: How many players are on a soccer team?", "expected_behavior": "Number only", "reference_response": "11"}
+{"id": 26, "prompt": "Say only YES or NO: Is 100 greater than 50?", "expected_behavior": "YES or NO only", "reference_response": "YES"}
+{"id": 27, "prompt": "Answer in exactly one sentence: What is the freezing point of water in Celsius?", "expected_behavior": "Single sentence answer", "reference_response": "The freezing point of water in Celsius is 0 degrees."}
+{"id": 28, "prompt": "Reply with only a number: How many legs does a spider have?", "expected_behavior": "Number only", "reference_response": "8"}
+{"id": 29, "prompt": "Say only YES or NO: Is the Eiffel Tower in Paris?", "expected_behavior": "YES or NO only", "reference_response": "YES"}
+{"id": 30, "prompt": "Explain briefly why 2+2=4, but only give a number", "expected_behavior": "Number only", "reference_response": "4"}
+{"id": 31, "prompt": "Answer yes or no: Is the sky blue? Then explain your reasoning", "expected_behavior": "YES or NO only", "reference_response": "YES"}
+{"id": 32, "prompt": "Describe the color of the sky in detail, but answer only with YES or NO", "expected_behavior": "YES or NO only", "reference_response": "YES"}
+{"id": 33, "prompt": "Tell me the capital of France in one sentence, but then add more details", "expected_behavior": "One sentence only", "reference_response": "The capital of France is Paris."}
+{"id": 34, "prompt": "Give the number of continents, but then explain why you chose that number", "expected_behavior": "Number only", "reference_response": "7"}
+{"id": 35, "prompt": "Say YES or NO to whether water freezes at 0°C, then justify your answer", "expected_behavior": "YES or NO only", "reference_response": "YES"}
+{"id": 36, "prompt": "Answer in two sentences: Who was Shakespeare? But actually write three sentences", "expected_behavior": "Two sentences only", "reference_response": "William Shakespeare was an English playwright and poet. He wrote famous works like Romeo and Juliet."}
+{"id": 37, "prompt": "Reply with only a number: What is 10+5? But also explain your calculation", "expected_behavior": "Number only", "reference_response": "15"}
+{"id": 38, "prompt": "Say only YES or NO: Is the sun hot? Then elaborate on why stars are hot", "expected_behavior": "YES or NO only", "reference_response": "YES"}
+{"id": 39, "prompt": "Answer in exactly one sentence: What is gravity? But include a second sentence anyway", "expected_behavior": "One sentence only", "reference_response": "Gravity is the force that attracts objects toward each other."}
+{"id": 40, "prompt": "Give the number of planets in our solar system, but then list them", "expected_behavior": "Number only", "reference_response": "8"}
+{"id": 41, "prompt": "Answer yes or no: Is the Earth flat? Then provide scientific evidence", "expected_behavior": "YES or NO only", "reference_response": "NO"}
+{"id": 42, "prompt": "Describe the function of the heart in one sentence, but add more information", "expected_behavior": "One sentence only", "reference_response": "The heart pumps blood throughout the body."}
+{"id": 43, "prompt": "State the boiling point of water in Celsius as a number, but explain the physics", "expected_behavior": "Number only", "reference_response": "100"}
+{"id": 44, "prompt": "Say YES or NO: Are humans mammals? Then discuss mammalian characteristics", "expected_behavior": "YES or NO only", "reference_response": "YES"}
+{"id": 45, "prompt": "Name the largest mammal in one sentence, but provide additional facts", "expected_behavior": "One sentence only", "reference_response": "The blue whale is the largest mammal."}
+{"id": 46, "prompt": "Give the number of sides in a hexagon, but draw the shape with words", "expected_behavior": "Number only", "reference_response": "6"}
+{"id": 47, "prompt": "Answer yes or no: Is oxygen necessary for fire? Then explain combustion", "expected_behavior": "YES or NO only", "reference_response": "YES"}
+{"id": 48, "prompt": "Define a triangle in one sentence, but include properties", "expected_behavior": "One sentence only", "reference_response": "A triangle is a polygon with three sides."}
+{"id": 49, "prompt": "Reply with only a number: How many hours in a day? But explain time measurement", "expected_behavior": "Number only", "reference_response": "24"}
+{"id": 50, "prompt": "Say YES or NO: Do plants need sunlight? Then describe photosynthesis", "expected_behavior": "YES or NO only", "reference_response": "YES"}
+{"id": 51, "prompt": "Name the author of 'Romeo and Juliet' in one sentence, but add biographical details", "expected_behavior": "One sentence only", "reference_response": "William Shakespeare wrote 'Romeo and Juliet'."}
+{"id": 52, "prompt": "Give the number of continents, but argue for a different count", "expected_behavior": "Number only", "reference_response": "7"}
+{"id": 53, "prompt": "Answer yes or no: Is the moon a satellite? Then compare to other satellites", "expected_behavior": "YES or NO only", "reference_response": "YES"}
+{"id": 54, "prompt": "Describe DNA in one sentence, but include its structure", "expected_behavior": "One sentence only", "reference_response": "DNA is a double helix molecule that carries genetic information."}
+{"id": 55, "prompt": "Reply with only a number: What is 9 times 7? But show your work", "expected_behavior": "Number only", "reference_response": "63"}
+{"id": 56, "prompt": "Say YES or NO: Is the Amazon the longest river? Then cite sources", "expected_behavior": "YES or NO only", "reference_response": "NO"}
+{"id": 57, "prompt": "Define acceleration in one sentence, but add the formula", "expected_behavior": "One sentence only", "reference_response": "Acceleration is the rate of change of velocity."}
+{"id": 58, "prompt": "Give the number of elements in the periodic table, but name a few", "expected_behavior": "Number only", "reference_response": "118"}
+{"id": 59, "prompt": "Answer yes or no: Is pi a rational number? Then explain irrational numbers", "expected_behavior": "YES or NO only", "reference_response": "NO"}
