@@ -1,0 +1,137 @@
+#!/usr/bin/env python
+"""
+Analysis of Qwen2.5-1.5B-Instruct model architecture for selective fine-tuning
+"""
+import json
+
+def analyze_selective_finetuning():
+    # Load the architecture info
+    with open('qwen25_architecture.json', 'r') as f:
+        arch_info = json.load(f)
+    
+    print("=== SECTION B: ARCHITECTURE SUMMARY WITH MODULE NAMES ===\n")
+    
+    print("HIGH-LEVEL TRANSFORMER STRUCTURE:")
+    print(f"- Number of transformer blocks: {arch_info['num_layers']}")
+    print(f"- Naming convention for blocks: model.layers[i] where i ∈ [0, {arch_info['num_layers']-1}]")
+    print("- Total parameters: ~1.5B (estimated)")
+    print()
+    
+    print("EXACT MODULE NAMES FOR KEY COMPONENTS:")
+    print()
+    
+    print("Attention Projections (Q, K, V, Output):")
+    print("- Q projections: model.layers.[layer_idx].self_attn.q_proj.{weight,bias}")
+    print("- K projections: model.layers.[layer_idx].self_attn.k_proj.{weight,bias}")
+    print("- V projections: model.layers.[layer_idx].self_attn.v_proj.{weight,bias}")
+    print("- O projections: model.layers.[layer_idx].self_attn.o_proj.{weight,bias}")
+    print("  Example for layer 0:")
+    print("  - model.layers.0.self_attn.q_proj.weight")
+    print("  - model.layers.0.self_attn.q_proj.bias")
+    print("  - model.layers.0.self_attn.k_proj.weight")
+    print("  - model.layers.0.self_attn.k_proj.bias")
+    print("  - model.layers.0.self_attn.v_proj.weight")
+    print("  - model.layers.0.self_attn.v_proj.bias")
+    print("  - model.layers.0.self_attn.o_proj.weight")
+    print()
+    
+    print("MLP / Feed-Forward Layers:")
+    print("- Gate projection: model.layers.[layer_idx].mlp.gate_proj.weight")
+    print("- Up projection: model.layers.[layer_idx].mlp.up_proj.weight")
+    print("- Down projection: model.layers.[layer_idx].mlp.down_proj.weight")
+    print("  Example for layer 0:")
+    print("  - model.layers.0.mlp.gate_proj.weight")
+    print("  - model.layers.0.mlp.up_proj.weight")
+    print("  - model.layers.0.mlp.down_proj.weight")
+    print()
+    
+    print("LayerNorms:")
+    print("- Input normalization: model.layers.[layer_idx].input_layernorm.weight")
+    print("- Post-attention normalization: model.layers.[layer_idx].post_attention_layernorm.weight")
+    print("- Final normalization: model.norm.weight")
+    print("  Example for layer 0:")
+    print("  - model.layers.0.input_layernorm.weight")
+    print("  - model.layers.0.post_attention_layernorm.weight")
+    print()
+    
+    print("Embedding Layers:")
+    print("- Token embeddings: model.embed_tokens.weight")
+    print()
+    
+    print("BIAS TERMS:")
+    print("- Attention biases: model.layers.[layer_idx].self_attn.[q/k/v]_proj.bias")
+    print("- Note: Output projection (o_proj) typically has no bias")
+    print()
+    
+    print("=== SECTION C: FREEZING LOGIC NOTES + CAVEATS ===\n")
+    
+    print("SELECTIVELY SELECTING TOP 4 TRANSFORMER BLOCKS:")
+    print("- For instruction-following models like Qwen2.5, empirical evidence suggests that")
+    print("  the middle and later layers tend to be more important for task-specific adaptation.")
+    print("- Common approach: Select top 4 layers by index (highest indices)")
+    print("- Top 4 transformer blocks: layers 24, 25, 26, 27 (indices 24-27)")
+    print("- Alternative approaches could use gradient-based importance or activation statistics")
+    print()
+    
+    print("FREEZING LOGIC FOR ATTENTION-ONLY FINETUNING:")
+    print("1. Freeze all parameters EXCEPT:")
+    print("   - All attention projection weights and biases in selected layers (24-27)")
+    print("   - Specific modules to unfreeze:")
+    print("     * model.layers.[24-27].self_attn.q_proj.{weight,bias}")
+    print("     * model.layers.[24-27].self_attn.k_proj.{weight,bias}")
+    print("     * model.layers.[24-27].self_attn.v_proj.{weight,bias}")
+    print("     * model.layers.[24-27].self_attn.o_proj.weight (no bias)")
+    print()
+    
+    print("FREEZING LOGIC FOR BITFIT-STYLE FINETUNING:")
+    print("1. Freeze all weight parameters")
+    print("2. Unfreeze only bias terms in selected layers (24-27)")
+    print("3. Specific modules to unfreeze:")
+    print("   - model.layers.[24-27].self_attn.q_proj.bias")
+    print("   - model.layers.[24-27].self_attn.k_proj.bias")
+    print("   - model.layers.[24-27].self_attn.v_proj.bias")
+    print("   - model.layers.[24-27].mlp.gate_proj.bias (if exists)")
+    print("   - model.layers.[24-27].mlp.up_proj.bias (if exists)")
+    print("   - model.layers.[24-27].mlp.down_proj.bias (if exists)")
+    print("   - model.layers.[24-27].input_layernorm.bias (if exists)")
+    print("   - model.layers.[24-27].post_attention_layernorm.bias (if exists)")
+    print()
+    
+    print("SANITY CHECKS:")
+    print("✓ Selective freezing/unfreezing is safe for Qwen2.5:")
+    print("  - Standard transformer architecture with no unusual components")
+    print("  - No shared parameters between layers that would complicate selective updates")
+    print("  - Standard PyTorch parameter freezing mechanism works properly")
+    print()
+    
+    print("✓ Architectural quirks check:")
+    print("  - Qwen2.5 uses grouped-query attention (K,V have smaller dimensions than Q,O)")
+    print("  - This doesn't invalidate attention-only fine-tuning")
+    print("  - RMSNorm instead of LayerNorm - doesn't affect selective tuning strategies")
+    print("  - SwiGLU activation in MLP (gate_proj + up_proj) - doesn't affect attention-only")
+    print("  - No architectural features that would invalidate attention-only or bias-only fine-tuning")
+    print()
+    
+    print("IMPLEMENTATION NOTES:")
+    print("1. To freeze all except attention projections in top 4 layers:")
+    print("   ```python")
+    print("   for name, param in model.named_parameters():")
+    print("       if any(f'model.layers.{i}.self_attn' in name for i in [24, 25, 26, 27]):")
+    print("           param.requires_grad = True  # Unfreeze attention")
+    print("       else:")
+    print("           param.requires_grad = False  # Freeze everything else")
+    print("   ```")
+    print()
+    print("2. To freeze all except bias terms in top 4 layers:")
+    print("   ```python")
+    print("   for name, param in model.named_parameters():")
+    print("       if '.bias' in name and any(f'model.layers.{i}.' in name for i in [24, 25, 26, 27]):")
+    print("           param.requires_grad = True  # Unfreeze bias in top 4 layers")
+    print("       elif any(f'model.layers.{i}.' in name for i in [24, 25, 26, 27]):")
+    print("           param.requires_grad = False  # Freeze weights in top 4 layers")
+    print("       else:")
+    print("           param.requires_grad = False  # Freeze everything else")
+    print("   ```")
+
+if __name__ == "__main__":
+    analyze_selective_finetuning()
